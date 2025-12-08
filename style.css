@@ -1,0 +1,767 @@
+/* ---------------------------------------------- */
+/* 0. CSS VARIABLES AND RESETS */
+/* ---------------------------------------------- */
+
+:root {
+    /* 2. Color Theme - Royal Blue (Primary Accent) */
+    --color-primary: #0A3D91; /* Royal Blue */
+    --color-primary-hover: #1A73E8; /* Slightly lighter/brighter blue for interaction */
+
+    /* Light Mode Defaults */
+    --color-background: #FFFFFF;
+    --color-text: #222222;
+    --color-card-bg: #F9F9F9;
+    --color-soft-gray: #C7C7C7;
+    --color-border: rgba(0, 0, 0, 0.1);
+    --color-shadow: rgba(0, 0, 0, 0.08);
+
+    /* 3. Fonts */
+    --font-title: 'Poppins', 'Sora', sans-serif;
+    --font-body: 'Inter', sans-serif;
+
+    /* 7. General Transitions */
+    --transition-duration: 0.3s;
+}
+
+/* 7. Dark Mode Class */
+body.dark-mode {
+    --color-background: #0E121B; /* Dark mode background */
+    --color-text: #EAEAEA;
+    --color-card-bg: #1A1F2B;
+    --color-soft-gray: #777777;
+    --color-border: rgba(255, 255, 255, 0.1);
+    --color-shadow: rgba(0, 0, 0, 0.5);
+    /* Invert SVG/Image filters if needed, handled on specific elements */
+}
+
+/* ---------------------------------------------- */
+/* BASE STYLES AND RESETS */
+/* ---------------------------------------------- */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: var(--font-body);
+    color: var(--color-text);
+    background-color: var(--color-background);
+    line-height: 1.6;
+    transition: background-color var(--transition-duration), color var(--transition-duration);
+    overflow-x: hidden; /* Prevent horizontal scroll */
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+}
+
+a {
+    color: var(--color-primary);
+    text-decoration: none;
+    transition: color var(--transition-duration);
+}
+
+a:hover {
+    color: var(--color-primary-hover);
+}
+
+/* Headings */
+h1, h2, h3 {
+    font-family: var(--font-title);
+    color: var(--color-text);
+    margin-bottom: 1rem;
+}
+
+h2 {
+    font-size: 2.5rem;
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+/* Buttons */
+.btn {
+    display: inline-block;
+    padding: 0.75rem 1.5rem;
+    border-radius: 5px;
+    font-weight: 600;
+    text-align: center;
+    transition: background-color var(--transition-duration), color var(--transition-duration), transform 0.2s;
+    border: none;
+    cursor: pointer;
+}
+
+.btn-primary {
+    background-color: var(--color-primary);
+    color: var(--color-background); /* White text on blue button */
+}
+
+.btn-primary:hover {
+    background-color: var(--color-primary-hover);
+    transform: translateY(-2px);
+}
+
+.btn-secondary {
+    background-color: transparent;
+    color: var(--color-text);
+    border: 2px solid var(--color-soft-gray);
+    padding: 0.65rem 1.4rem;
+}
+
+.btn-secondary:hover {
+    border-color: var(--color-primary);
+    color: var(--color-primary);
+    transform: translateY(-2px);
+}
+
+.btn-small {
+    padding: 0.5rem 1rem;
+    font-size: 0.9rem;
+}
+
+
+/* ---------------------------------------------- */
+/* 5. BACKGROUND GRAPHICS & SUBTLE EFFECTS */
+/* ---------------------------------------------- */
+
+/* Option 1 - Faint Geometric Lines (CSS Only Overlay) */
+body::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: 
+        repeating-linear-gradient(0deg, var(--color-soft-gray), var(--color-soft-gray) 1px, transparent 1px, transparent 100px), 
+        repeating-linear-gradient(90deg, var(--color-soft-gray), var(--color-soft-gray) 1px, transparent 1px, transparent 100px);
+    opacity: 0.05; /* Very low opacity */
+    z-index: -1;
+    transition: opacity var(--transition-duration);
+}
+
+/* Adjusting background effect for dark mode for non-intrusiveness */
+body.dark-mode::before {
+    opacity: 0.03; /* Even lower visibility in dark mode */
+}
+
+
+/* ---------------------------------------------- */
+/* (1) HEADER / NAVIGATION BAR */
+/* ---------------------------------------------- */
+
+#header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+    background-color: var(--color-background);
+    box-shadow: 0 2px 10px var(--color-shadow);
+    transition: background-color var(--transition-duration), box-shadow var(--transition-duration);
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 70px;
+}
+
+.logo {
+    font-family: var(--font-title);
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--color-primary);
+}
+
+.nav-menu ul {
+    list-style: none;
+    display: flex;
+}
+
+.nav-menu ul li a {
+    padding: 0.5rem 1rem;
+    display: block;
+    font-weight: 600;
+    color: var(--color-text);
+    opacity: 0.8;
+}
+
+.nav-menu ul li a:hover {
+    color: var(--color-primary);
+    opacity: 1;
+}
+
+/* Theme Toggle Button */
+.nav-controls {
+    display: flex;
+    align-items: center;
+}
+
+.theme-toggle {
+    background: none;
+    border: none;
+    font-size: 1.25rem;
+    cursor: pointer;
+    color: var(--color-text);
+    margin-right: 1.5rem;
+    transition: color var(--transition-duration);
+}
+
+.theme-toggle:hover {
+    color: var(--color-primary);
+}
+
+/* Hamburger Menu (Hidden on Desktop) */
+.hamburger {
+    display: none; /* Hide by default */
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 10px;
+}
+
+.hamburger .bar {
+    display: block;
+    width: 25px;
+    height: 3px;
+    margin: 5px auto;
+    background-color: var(--color-text);
+    transition: all 0.3s ease-in-out;
+}
+
+
+/* ---------------------------------------------- */
+/* (2) HERO SECTION */
+/* ---------------------------------------------- */
+
+.section {
+    padding: 8rem 0 4rem 0;
+    position: relative;
+    overflow: hidden; /* For animations */
+}
+
+#home {
+    padding-top: 10rem; /* Space below sticky navbar */
+    min-height: 100vh;
+}
+
+.hero-content {
+    display: flex;
+    align-items: center;
+    gap: 4rem;
+}
+
+.hero-text {
+    flex: 1;
+    max-width: 600px;
+}
+
+.hero-text h1 {
+    font-size: 3.5rem;
+    line-height: 1.1;
+    margin-bottom: 0.5rem;
+}
+
+.hero-text h2 {
+    font-size: 1.5rem;
+    color: var(--color-primary);
+    margin-bottom: 1.5rem;
+    font-weight: 600;
+}
+
+.hero-text p {
+    font-size: 1.1rem;
+    margin-bottom: 2rem;
+    opacity: 0.8;
+}
+
+.hero-actions {
+    display: flex;
+    gap: 1rem;
+}
+
+.hero-visual {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    max-width: 500px;
+}
+
+.hero-visual img {
+    max-width: 100%;
+    height: auto;
+    /* Optional filter adjustment for dark mode SVGs */
+    transition: filter var(--transition-duration);
+}
+
+/* 6. Hero Image Animation: Gentle floating keyframes */
+@keyframes float {
+    0% { transform: translateY(0px); }
+    50% { transform: translateY(-8px); }
+    100% { transform: translateY(0px); }
+}
+
+.floating-animation {
+    animation: float 4s ease-in-out infinite;
+}
+
+
+/* ---------------------------------------------- */
+/* (3) SKILLS SECTION */
+/* ---------------------------------------------- */
+
+.skills-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 2rem;
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.skill-card {
+    background-color: var(--color-card-bg);
+    padding: 1.5rem;
+    text-align: center;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px var(--color-shadow);
+    transition: all var(--transition-duration);
+    border: 1px solid var(--color-border);
+    position: relative; /* For glow effect */
+    overflow: hidden;
+}
+
+.skill-card h3 {
+    font-size: 1.1rem;
+    margin-top: 0.5rem;
+    margin-bottom: 0;
+}
+
+.skill-icon {
+    font-size: 2.5rem;
+    color: var(--color-primary);
+    margin-bottom: 0.5rem;
+}
+.skill-icon img {
+    height: 2.5rem; /* Ensure consistent size for placeholder images */
+    width: auto;
+}
+
+/* 6. Skill Cards: Glow and Scale-up on Hover */
+.skill-card:hover {
+    transform: translateY(-5px) scale(1.02);
+    border-color: var(--color-primary);
+    box-shadow: 0 8px 25px rgba(10, 61, 145, 0.3); /* Royal Blue Shadow */
+}
+
+/* CSS Glow Effect (Pseudo-element) */
+.skill-card::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, var(--color-primary-hover) 0%, transparent 70%);
+    opacity: 0;
+    transition: opacity 0.5s;
+    z-index: 0;
+}
+
+.skill-card:hover::before {
+    opacity: 0.15;
+}
+
+
+/* ---------------------------------------------- */
+/* (4) PROFESSIONAL PHOTO SECTION */
+/* ---------------------------------------------- */
+
+.centered-content {
+    text-align: center;
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+.portrait-container {
+    width: 180px;
+    height: 180px;
+    margin: 0 auto 1.5rem auto;
+    border-radius: 50%; /* Circular */
+    overflow: hidden;
+    box-shadow: 0 8px 30px var(--color-shadow);
+    transition: box-shadow var(--transition-duration);
+}
+
+.user-portrait {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.caption {
+    font-style: italic;
+    color: var(--color-soft-gray);
+}
+
+
+/* ---------------------------------------------- */
+/* (5) PROJECTS SECTION */
+/* ---------------------------------------------- */
+
+.project-card {
+    display: flex;
+    align-items: center;
+    gap: 4rem;
+    margin-bottom: 5rem;
+    background-color: var(--color-card-bg);
+    padding: 2.5rem;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px var(--color-shadow);
+    border: 1px solid var(--color-border);
+    transition: all var(--transition-duration);
+}
+
+.project-card:hover {
+    transform: translateY(-3px);
+}
+
+.project-card.reversed {
+    flex-direction: row-reverse;
+}
+
+.project-info {
+    flex: 1;
+}
+
+.project-info h3 {
+    color: var(--color-primary);
+    margin-bottom: 0.5rem;
+}
+
+.tags {
+    margin: 1rem 0;
+}
+
+.tag {
+    display: inline-block;
+    background-color: var(--color-primary);
+    color: white;
+    font-size: 0.75rem;
+    padding: 0.3rem 0.6rem;
+    border-radius: 3px;
+    margin-right: 0.5rem;
+    font-weight: 600;
+}
+
+.project-actions {
+    margin-top: 1.5rem;
+    display: flex;
+    gap: 1rem;
+}
+
+/* Project Carousel */
+.project-carousel-container {
+    flex: 1;
+    max-width: 500px;
+    position: relative;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+    background-color: var(--color-background);
+}
+
+.carousel {
+    display: flex;
+    /* Uses JS to set translateX */
+    transition: transform 0.5s ease-in-out; /* 6. Smooth sliding animation */
+}
+
+.carousel-slide {
+    width: 100%;
+    height: auto;
+    min-width: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.carousel-prev, .carousel-next {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(0, 0, 0, 0.5);
+    color: white;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    z-index: 10;
+    transition: background 0.3s;
+    font-size: 1.2rem;
+}
+
+.carousel-prev:hover, .carousel-next:hover {
+    background: rgba(0, 0, 0, 0.8);
+}
+
+.carousel-prev {
+    left: 10px;
+    border-radius: 50%;
+}
+
+.carousel-next {
+    right: 10px;
+    border-radius: 50%;
+}
+
+
+/* ---------------------------------------------- */
+/* (7) CONTACT SECTION */
+/* ---------------------------------------------- */
+
+.contact-links {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 2rem;
+    margin: 2rem 0 3rem 0;
+}
+
+.contact-item {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-weight: 600;
+    padding: 0.5rem;
+    border-bottom: 2px solid transparent;
+}
+
+.contact-item:hover {
+    border-bottom: 2px solid var(--color-primary);
+}
+
+.contact-form {
+    max-width: 500px;
+    margin: 0 auto;
+    padding: 2rem;
+    background-color: var(--color-card-bg);
+    border-radius: 8px;
+    border: 1px solid var(--color-border);
+}
+
+.contact-form h3 {
+    text-align: center;
+    color: var(--color-primary);
+    margin-bottom: 1.5rem;
+}
+
+.contact-form input, 
+.contact-form textarea {
+    width: 100%;
+    padding: 0.75rem;
+    margin-bottom: 1rem;
+    border: 1px solid var(--color-soft-gray);
+    border-radius: 4px;
+    background-color: var(--color-background);
+    color: var(--color-text);
+    transition: border-color var(--transition-duration), background-color var(--transition-duration);
+}
+
+.contact-form input:focus, 
+.contact-form textarea:focus {
+    outline: none;
+    border-color: var(--color-primary);
+}
+
+.contact-form .btn-primary {
+    width: 100%;
+}
+
+.form-note {
+    font-size: 0.8rem;
+    color: var(--color-soft-gray);
+    margin-top: 0.5rem;
+    text-align: center;
+}
+
+/* ---------------------------------------------- */
+/* (8) FOOTER */
+/* ---------------------------------------------- */
+
+#footer {
+    padding: 2rem 0;
+    text-align: center;
+    border-top: 1px solid var(--color-border);
+    margin-top: 4rem;
+    color: var(--color-soft-gray);
+    font-size: 0.9rem;
+}
+
+
+/* ---------------------------------------------- */
+/* 6. GENERAL ANIMATIONS (Reveal on Scroll) */
+/* ---------------------------------------------- */
+
+.reveal {
+    opacity: 0;
+    transform: translateY(50px);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.reveal.active {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Hero text fade-in on load (initial animation) */
+.fade-in-on-load {
+    opacity: 0;
+    animation: fadeIn 1s ease-out forwards;
+}
+@keyframes fadeIn {
+    to { opacity: 1; }
+}
+
+
+/* ---------------------------------------------- */
+/* 8. RESPONSIVENESS (MEDIA QUERIES) */
+/* ---------------------------------------------- */
+
+/* Tablet (481px–768px) */
+@media (max-width: 768px) {
+    /* Hero Section */
+    .hero-content {
+        flex-direction: column;
+        text-align: center;
+        gap: 2rem;
+    }
+    .hero-text {
+        order: 2;
+    }
+    .hero-visual {
+        order: 1;
+        max-width: 300px;
+    }
+    .hero-text h1 {
+        font-size: 2.8rem;
+    }
+    .hero-actions {
+        justify-content: center;
+    }
+
+    /* Skills Section */
+    .skills-grid {
+        grid-template-columns: repeat(auto-fit, minmax(130px, 1fr)); /* Two-column skills grid */
+    }
+
+    /* Projects Section */
+    .project-card,
+    .project-card.reversed {
+        flex-direction: column;
+        gap: 2rem;
+        padding: 2rem;
+    }
+    .project-carousel-container {
+        max-width: 100%;
+    }
+}
+
+/* Mobile (under 480px) */
+@media (max-width: 480px) {
+    h2 {
+        font-size: 2rem;
+    }
+    .container {
+        padding: 0 1rem;
+    }
+    
+    /* Navigation Bar (Hamburger Menu) */
+    .nav-menu {
+        /* Initially hidden and styled for the mobile overlay */
+        display: none;
+        position: absolute;
+        top: 70px;
+        left: 0;
+        width: 100%;
+        background-color: var(--color-card-bg); /* Use card background for contrast */
+        box-shadow: 0 5px 10px var(--color-shadow);
+        border-top: 1px solid var(--color-border);
+        transition: transform var(--transition-duration) ease-in-out;
+    }
+
+    .nav-menu.active {
+        display: block;
+        transform: translateY(0);
+    }
+
+    .nav-menu ul {
+        flex-direction: column;
+        padding: 1rem 0;
+    }
+
+    .nav-menu ul li a {
+        padding: 0.75rem 1.5rem;
+        border-bottom: 1px solid var(--color-border);
+    }
+    .nav-menu ul li:last-child a {
+        border-bottom: none;
+    }
+
+    .hamburger {
+        display: block; /* Show hamburger menu on mobile */
+    }
+
+    /* Hamburger Animation (X icon) */
+    .hamburger.active .bar:nth-child(2) {
+        opacity: 0;
+    }
+    .hamburger.active .bar:nth-child(1) {
+        transform: translateY(8px) rotate(45deg);
+    }
+    .hamburger.active .bar:nth-child(3) {
+        transform: translateY(-8px) rotate(-45deg);
+    }
+
+    /* Hero Section */
+    .hero-text h1 {
+        font-size: 2.2rem;
+    }
+    .hero-text h2 {
+        font-size: 1.2rem;
+    }
+    .hero-actions {
+        flex-direction: column; /* Stack buttons */
+    }
+    .hero-visual {
+        margin-bottom: 1rem;
+    }
+
+    /* Skills Section */
+    .skills-grid {
+        grid-template-columns: 1fr 1fr; /* Two columns */
+        gap: 1rem;
+    }
+
+    /* Projects Section */
+    .project-card {
+        padding: 1.5rem;
+        margin-bottom: 3rem;
+    }
+    .project-actions {
+        flex-direction: column;
+    }
+
+    /* Contact Section */
+    .contact-form {
+        padding: 1.5rem;
+    }
+}
