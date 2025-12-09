@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>[Your Name]'s AI/ML Portfolio</title>
+    <title>Toluwanimi Portfolio</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Poppins:wght@700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
@@ -12,7 +12,7 @@
 
     <header id="header">
         <div class="container navbar">
-            <a href="#home" class="logo">[Your Name]</a>
+            <a href="#home" class="logo" style="font-size: 15px;">Toluwanimi Olaitan</a>
 
             <nav class="nav-menu" id="navMenu">
                 <ul>
@@ -42,19 +42,25 @@
         <section id="home" class="hero section">
             <div class="container hero-content">
                 <div class="hero-text fade-in-on-load">
-                    <h1>Hi, I’m **[Your Name]**</h1>
-                    <h2>AI/ML Engineer focused on **NLP & TTS**.</h2>
+                    <h1><span style="font-size: 20px;">Hi there!, I'm</span> <br>Toluwanimi</h1>
+                    <h3 style="font-size: 20px;">An AI/ML Engineer focused on NLP & TTS</h3>
                     <p>I build intelligent systems that convert complex language and voice into seamless, intuitive user experiences, driving innovation in conversational AI.</p>
                     
                     <div class="hero-actions">
-                        <a href="#projects" class="btn btn-primary">View Projects</a>
-                        <a href="https://github.com/your-username" target="_blank" class="btn btn-secondary">GitHub</a>
-                        <a href="mailto:youremail@example.com" class="btn btn-secondary">Email</a>
+                        <a href="https://wa.me/+2349060194677" class="btn btn-primary" style="color: white;">Hire Me!</a>
                     </div>
                 </div>
 
                 <div class="hero-visual">
-                    <img src="assets/hero-illustration.svg" alt="Abstract AI Neural Network Illustration" class="floating-animation">
+                    <!-- <img src="assets/hero-illustration.svg" alt="Abstract AI Neural Network Illustration" class="floating-animation"> -->
+                    <!-- <video width="480" height="360" controls>
+                        <source src="assets/vids/profile.mp4" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video> -->
+                    <br>
+                <div class="portrait-container-top">
+                    <img src="assets/me.png" alt="Me" class="user-portrait">
+                </div>
                 </div>
             </div>
         </section>
@@ -115,7 +121,7 @@
         <section class="photo-section section reveal">
             <div class="container centered-content">
                 <div class="portrait-container">
-                    <img src="assets/user-photo.jpg" alt="Professional portrait of [Your Name]" class="user-portrait">
+                    <img src="assets/me.png" alt="Professional portrait of [Your Name]" class="user-portrait">
                 </div>
                 <p class="caption">AI/ML Engineer | NLP & Speech Enthusiast</p>
             </div>
@@ -126,6 +132,14 @@
                 <h2>Featured Projects</h2>
 
                 <article class="project-card">
+                    <div class="project-carousel-container">
+                        <div class="carousel" data-project="1">
+                            <img src="assets/desktop_tts/desktop_light.png" alt="Project 1 Screenshot 1" class="carousel-slide active">
+                            <img src="assets/desktop_tts/desktop_dark.png" alt="Project 1 Screenshot 2" class="carousel-slide">
+                        </div>
+                        <button class="carousel-prev" aria-label="Previous slide"><i class="fas fa-chevron-left"></i></button>
+                        <button class="carousel-next" aria-label="Next slide"><i class="fas fa-chevron-right"></i></button>
+                    </div>
                     <div class="project-info">
                         <h3>Offline Desktop TTS Tool</h3>
                         <p class="description">A standalone desktop application for generating high-quality synthetic speech from text, designed for low-latency, offline operation. Leverages pre-trained PyTorch models for efficient local execution.</p>
@@ -136,28 +150,18 @@
                             <span class="tag">PyTorch</span>
                         </div>
                         <div class="project-actions">
-                            <a href="https://github.com/your-project1-repo" target="_blank" class="btn btn-small">View Code</a>
-                            <a href="#" class="btn btn-small">Demo</a>
+                            <!-- <a href="https://theomnitron.github.io/my_portfolio" target="_blank" class="btn btn-small">View Code</a>
+                            <a href="#" class="btn btn-small">Demo</a> -->
                         </div>
                     </div>
 
-                    <div class="project-carousel-container">
-                        <div class="carousel" data-project="1">
-                            <img src="assets/project1-img1.png" alt="Project 1 Screenshot 1" class="carousel-slide active">
-                            <img src="assets/project1-img2.png" alt="Project 1 Screenshot 2" class="carousel-slide">
-                            <img src="assets/project1-img3.png" alt="Project 1 Screenshot 3" class="carousel-slide">
-                        </div>
-                        <button class="carousel-prev" aria-label="Previous slide"><i class="fas fa-chevron-left"></i></button>
-                        <button class="carousel-next" aria-label="Next slide"><i class="fas fa-chevron-right"></i></button>
-                    </div>
                 </article>
 
                 <article class="project-card reversed">
                     <div class="project-carousel-container">
                         <div class="carousel" data-project="2">
-                            <img src="assets/project2-img1.png" alt="Project 2 Screenshot 1" class="carousel-slide active">
-                            <img src="assets/project2-img2.png" alt="Project 2 Screenshot 2" class="carousel-slide">
-                            <img src="assets/project2-img3.png" alt="Project 2 Screenshot 3" class="carousel-slide">
+                            <img src="assets/desktop_tts/desktop_light.png" alt="Project 2 Screenshot 1" class="carousel-slide active">
+                            <img src="assets/desktop_tts/desktop_dark.png" alt="Project 2 Screenshot 2" class="carousel-slide">
                         </div>
                         <button class="carousel-prev" aria-label="Previous slide"><i class="fas fa-chevron-left"></i></button>
                         <button class="carousel-next" aria-label="Next slide"><i class="fas fa-chevron-right"></i></button>
@@ -173,8 +177,8 @@
                             <span class="tag">Streamlit</span>
                         </div>
                         <div class="project-actions">
-                            <a href="https://github.com/your-project2-repo" target="_blank" class="btn btn-small">View Code</a>
-                            <a href="#" class="btn btn-small">Demo</a>
+                            <a href="https://github.com/Theomnitron/SummaRead_App__PWA__Web_and_Mobile" target="_blank" class="btn btn-small">View Code</a>
+                            <a href="https://theomnitron.github.io/pwa_maker/" class="btn btn-small">Demo</a>
                         </div>
                     </div>
                 </article>
@@ -186,7 +190,12 @@
             <div class="container centered-content">
                 <h2>About Me</h2>
                 <div class="about-content">
-                    <p>I’m an AI/ML engineer passionate about Natural Language Processing and Speech Technologies. I enjoy building systems that convert text and voice into natural, intuitive user experiences. I work primarily with Python, PyTorch, TensorFlow, and deploy prototypes using Streamlit. My interests focus on Neural TTS, Summarization, and generative speech models.</p>
+                    <p>
+                        I’m an AI/ML engineer passionate about Natural Language Processing and Speech Technologies.
+                        I enjoy building systems that integrate text and voice(s) to achieve natural, intuitive user experiences.
+                        I work primarily with Python, PyTorch, TensorFlow, and deploy prototypes using Streamlit.
+                        My interests focus on Neural TTS, Summarization, and generative speech models.
+                    </p>
                 </div>
             </div>
         </section>
@@ -194,22 +203,26 @@
         <section id="contact" class="contact section reveal">
             <div class="container centered-content">
                 <h2>Get In Touch</h2>
-                <p>Have a project idea or want to discuss the latest in generative AI? Feel free to reach out!</p>
+                <p>Want to integrate AI in your software or looking to collab with ML Engineer?<br>Feel free to reach out!</p>
 
                 <div class="contact-links">
-                    <a href="mailto:youremail@example.com" class="contact-item"><i class="fas fa-envelope"></i> youremail@example.com</a>
-                    <a href="https://github.com/your-username" target="_blank" class="contact-item"><i class="fab fa-github"></i> GitHub Profile</a>
+                    <a href="mailto:tolumichael67@gmail.com" class="contact-item"><i class="fas fa-envelope"></i>Email</a>
+                    <a href="https://github.com/theomnitron" target="_blank" class="contact-item"><i class="fab fa-github"></i> GitHub Profile</a>
                     <a href="https://linkedin.com/in/your-linkedin" target="_blank" class="contact-item"><i class="fab fa-linkedin"></i> LinkedIn Profile</a>
+                    <a href="https://wa.me/+2349060194677" target="_blank" class="contact-item"><i class="fab fa-whatsapp"></i> Whatsapp</a>
                 </div>
 
-                <form class="contact-form">
+                <!-- <form class="contact-form">
                     <h3>Send a quick message</h3>
                     <input type="text" placeholder="Your Name" required>
                     <input type="email" placeholder="Your Email" required>
                     <textarea placeholder="Your Message" rows="5" required></textarea>
                     <button type="submit" class="btn btn-primary">Send Message</button>
-                    <p class="form-note">Note: This form is decorative and requires a backend service to function.</p>
-                </form>
+                    <p class="form-note">...will respond shortly</p>
+                </form> -->
+                <div class="hero-actions">
+                    <a href="https://wa.me/+2349060194677" class="btn btn-primary" style="color: white;">Hire Me!</a>
+                </div>
 
             </div>
         </section>
@@ -218,7 +231,7 @@
 
     <footer id="footer">
         <div class="container">
-            <p>&copy; 2025 [Your Name]. Built with HTML, CSS, and JavaScript.</p>
+            <p>&copy; 2025 Toluwanimi Olaitan. AI/ML</p>
         </div>
     </footer>
 

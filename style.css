@@ -77,7 +77,7 @@ a:hover {
 h1, h2, h3 {
     font-family: var(--font-title);
     color: var(--color-text);
-    margin-bottom: 1rem;
+    /* margin-bottom: 1rem; */
 }
 
 h2 {
@@ -88,7 +88,7 @@ h2 {
 
 /* Buttons */
 .btn {
-    display: inline-block;
+    /* display: inline-block; */
     padding: 0.75rem 1.5rem;
     border-radius: 5px;
     font-weight: 600;
@@ -101,6 +101,9 @@ h2 {
 .btn-primary {
     background-color: var(--color-primary);
     color: var(--color-background); /* White text on blue button */
+    padding: 15px 30px;
+    font-size: 30px;
+    font-weight: 800;
 }
 
 .btn-primary:hover {
@@ -254,6 +257,17 @@ body.dark-mode::before {
     min-height: 100vh;
 }
 
+/* For the profile photo at the top */
+.portrait-container-top {
+    width: 220px;
+    height: 220px;
+    margin: 0 auto 1.5rem auto;
+    border-radius: 50%; /* Circular */
+    overflow: hidden;
+    box-shadow: 0 8px 30px var(--color-shadow);
+    transition: box-shadow var(--transition-duration);
+}
+
 .hero-content {
     display: flex;
     align-items: center;
@@ -285,8 +299,8 @@ body.dark-mode::before {
 }
 
 .hero-actions {
-    display: flex;
-    gap: 1rem;
+    /* display: flex; */
+    text-align: center;
 }
 
 .hero-visual {
