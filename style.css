@@ -115,6 +115,7 @@ h2 {
 .btn-primary {
     background-color: var(--color-primary);
     color: var(--color-background); /* White text on blue button */
+    border-radius: 10px;
     padding: 15px 30px;
     font-size: 30px;
     font-weight: 800;
@@ -261,7 +262,7 @@ body.dark-mode::before {
 /* ---------------------------------------------- */
 
 .section {
-    padding: 8rem 0 4rem 0;
+    padding: 4rem 0 4rem 0;
     position: relative;
     overflow: hidden; /* For animations */
 }
@@ -348,6 +349,9 @@ body.dark-mode::before {
 /* ---------------------------------------------- */
 /* (3) SKILLS SECTION */
 /* ---------------------------------------------- */
+#skills {
+    margin-top: -3%;
+}
 
 .skills-grid {
     display: grid;
