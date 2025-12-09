@@ -8,6 +8,9 @@
     --color-primary-hover: #1A73E8; /* Slightly lighter/brighter blue for interaction */
 
     /* Light Mode Defaults */
+    --footer-text: #555555;
+    --profile-border: #0A3D91;
+    --color-text-nav: #0A3D91;
     --color-background: #FFFFFF;
     --color-text: #222222;
     --color-card-bg: #F9F9F9;
@@ -25,6 +28,9 @@
 
 /* 7. Dark Mode Class */
 body.dark-mode {
+    --footer-text: #C7C7C7;
+    --profile-border: #C7C7C7;
+    --color-text-nav: #ffffff; /*  Royal Blue */
     --color-background: #0E121B; /* Dark mode background */
     --color-text: #EAEAEA;
     --color-card-bg: #1A1F2B;
@@ -84,6 +90,14 @@ h2 {
     font-size: 2.5rem;
     text-align: center;
     margin-bottom: 3rem;
+}
+
+#project-heading {
+    color: var(--color-text-nav);
+}
+
+#project-heading:hover{
+    border-bottom: 2px solid var(--color-primary);
 }
 
 /* Buttons */
@@ -182,7 +196,7 @@ body.dark-mode::before {
     font-family: var(--font-title);
     font-size: 1.5rem;
     font-weight: 700;
-    color: var(--color-primary);
+    color: var(--color-text-nav);
 }
 
 .nav-menu ul {
@@ -262,6 +276,7 @@ body.dark-mode::before {
     width: 220px;
     height: 220px;
     margin: 0 auto 1.5rem auto;
+    border: 3px solid var(--profile-border);
     border-radius: 50%; /* Circular */
     overflow: hidden;
     box-shadow: 0 8px 30px var(--color-shadow);
@@ -362,7 +377,7 @@ body.dark-mode::before {
 
 .skill-icon {
     font-size: 2.5rem;
-    color: var(--color-primary);
+    color: var(--color-text-nav);
     margin-bottom: 0.5rem;
 }
 .skill-icon img {
@@ -551,6 +566,7 @@ body.dark-mode::before {
 }
 
 .contact-item {
+    color: var(--color-text-nav);
     display: flex;
     align-items: center;
     gap: 0.5rem;
@@ -616,7 +632,7 @@ body.dark-mode::before {
     text-align: center;
     border-top: 1px solid var(--color-border);
     margin-top: 4rem;
-    color: var(--color-soft-gray);
+    color: var(--footer-text);
     font-size: 0.9rem;
 }
 
