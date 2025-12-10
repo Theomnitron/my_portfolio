@@ -598,14 +598,12 @@ body.dark-mode::before {
 /* ---------------------------------------------- */
 /* (7) CONTACT SECTION */
 /* ---------------------------------------------- */
-/* #about{
-    margin-top: -2%;
-    margin-bottom: -2%;
+#about{
+    margin-bottom: -10px;
 }
 #contact{
-    margin-top: -2%;
-    margin-bottom: -2%;
-} */
+    margin-top: -10px;
+}
 
 #about-inner-gap{
     margin-bottom: -1px;
@@ -616,7 +614,7 @@ body.dark-mode::before {
     justify-content: center;
     flex-wrap: wrap;
     gap: 1rem;
-    margin: 3rem 1rem 3rem 1rem;
+    margin: 7rem 1rem 3rem 1rem;
 }
 
 .contact-item {
