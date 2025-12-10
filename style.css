@@ -388,6 +388,44 @@ body.dark-mode::before {
     height: 2.5rem; /* Ensure consistent size for placeholder images */
     width: auto;
 }
+.pytorch-icon {
+  width: 36px;        /* smaller size */
+  height: 36px;
+  fill: #0A3D91;      /* royal blue */
+  transition: fill 0.3s ease;
+}
+.dark-mode .pytorch-icon {
+  fill: #ffffff;      /* white in dark mode */
+}
+.tensorflow-icon {
+  width: 36px;        /* smaller size */
+  height: 36px;
+  fill: #0A3D91;      /* royal blue */
+  transition: fill 0.3s ease;
+}
+.dark-mode .tensorflow-icon {
+  fill: #ffffff;      /* white in dark mode */
+}
+.scikit-learn-icon {
+  width: 40px;        /* smaller size */
+  height: 40px;
+  fill: #0A3D91;      /* royal blue */
+  transition: fill 0.3s ease;
+}
+.dark-mode .scikit-learn-icon {
+  fill: #ffffff;      /* white in dark mode */
+}
+.streamlit-icon {
+  width: 40px;        /* smaller size */
+  height: 40px;
+  fill: #0A3D91;      /* royal blue */
+  transition: fill 0.3s ease;
+}
+.dark-mode .streamlit-icon {
+  fill: #ffffff;      /* white in dark mode */
+}
+
+
 
 /* 6. Skill Cards: Glow and Scale-up on Hover */
 .skill-card:hover {
@@ -483,7 +521,7 @@ body.dark-mode::before {
 }
 
 .tags {
-    margin: 1rem 0;
+    margin: 3rem 0;
 }
 
 .tag {
@@ -560,13 +598,25 @@ body.dark-mode::before {
 /* ---------------------------------------------- */
 /* (7) CONTACT SECTION */
 /* ---------------------------------------------- */
+/* #about{
+    margin-top: -2%;
+    margin-bottom: -2%;
+}
+#contact{
+    margin-top: -2%;
+    margin-bottom: -2%;
+} */
+
+#about-inner-gap{
+    margin-bottom: -1px;
+}
 
 .contact-links {
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
-    gap: 2rem;
-    margin: 2rem 0 3rem 0;
+    gap: 1rem;
+    margin: 2rem 0 5rem 0;
 }
 
 .contact-item {
