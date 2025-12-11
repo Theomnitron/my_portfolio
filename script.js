@@ -180,7 +180,7 @@ document.addEventListener('DOMContentLoaded', () => {
          */
         function startAutoPlay() {
             // Using 5000ms (5 seconds) as the time interval
-            slideInterval = setInterval(nextSlide, 5000); 
+            slideInterval = setInterval(nextSlide, 4000); 
         }
 
         /**
